@@ -133,23 +133,24 @@ source_group("Hello\\A" FILES ${SRC_FILES})
 ################################
 # 编译目标 SHARED|STATIC
 ################################
-# add_library(myTarget SHARED ${SRC_FILES})
-add_executable(myTarget ${SRC_FILES})
+set(TargetName ${PROJECT_NAME})
+# add_library(TargetName SHARED ${SRC_FILES})
+add_executable(TargetName ${SRC_FILES})
 
 ################################
 # 设置目标选项
 ################################
-target_compile_options(myTarget PRIVATE $<$<COMPILE_LANGUAGE:C>: -O3 -ggdb>)
-target_compile_options(myTarget PRIVATE $<$<COMPILE_LANGUAGE:CXX>: -std=c++11 -O3 -ggdb>)
-target_compile_definitions(myTarget PRIVATE  GUTILITY_DLL)
-target_include_directories(myTarget PRIVATE "dir1" "dir2")
-target_precompile_headers(myTarget PRIVATE "stdafx.h")
+target_compile_options(TargetName PRIVATE $<$<COMPILE_LANGUAGE:C>: -O3 -ggdb>)
+target_compile_options(TargetName PRIVATE $<$<COMPILE_LANGUAGE:CXX>: -std=c++11 -O3 -ggdb>)
+target_compile_definitions(TargetName PRIVATE  GUTILITY_DLL)
+target_include_directories(TargetName PRIVATE "dir1" "dir2")
+target_precompile_headers(TargetName PRIVATE "stdafx.h")
 
-target_link_libraries(myTarget lib1 lib2)
+target_link_libraries(TargetName lib1 lib2)
 # -Wl,--no-wchar-size-warning
-set_target_properties(myTarget PROPERTIES LINK_FLAGS " ")
+set_target_properties(TargetName PROPERTIES LINK_FLAGS " ")
 
 ################################
 # install
 ################################
-install(TARGETS myTarget DESTINATION bin)
+install(TARGETS TargetName DESTINATION bin)
