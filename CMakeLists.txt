@@ -7,7 +7,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 endif()
 
 # 工程名称，变量${PROJECT_NAME}
-project(myProject)
+project(HelloCMake)
 
 ################################
 # Android
@@ -104,8 +104,8 @@ add_dependencies(APP GUI)
 ################################
 # 源文件
 ################################
-set(SRC_FILES a.c b.c c.cpp)
-list(APPEND SRC_FILES d.c e.cpp)
+set(SRC_FILES main.cpp)
+# list(APPEND SRC_FILES d.c e.cpp)
 
 ################################
 # 源文件分组
